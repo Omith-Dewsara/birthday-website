@@ -1,5 +1,4 @@
 import './App.css';
-import firstImg from "./assets/first-img.png";
 import birthdayHatImg from "./assets/birthday-hat-img.png";
 import birthdayFlags from "./assets/birthday-flags.png";
 import birthdayCake from "./assets/birthday-cake.jpg";
@@ -11,13 +10,16 @@ import modelCupCakeImg from "./assets/model-cupcake-img.png";
 import modelCookies from "./assets/model-cookies.png";
 import model1GiftBoxes from "./assets/model1-gift-boxes.png";
 import section3Img from "./assets/section-3-img.png";
+import beforeContainerImg from "./assets/website-before-img.jpg";
+import happyBirthdaySong from "./assets/happy-birthday-song-1.mp3";
+import friendImg1 from "./assets/friends-1.jpg";
 import { useState, useEffect } from "react";
 import soundTrack from "./assets/hover-sound.mp3";
 import clickSound from "./assets/click-sound.mp3";
 import "./Section3.css";
 
 function App() {
-  const [text1, setText1] = useState("Hey");
+  const [text1, setText1] = useState("Hey you");
 
   const [model1Active, setModel1Active] = useState(false);
 
@@ -28,11 +30,11 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setText1("Yes you")
-    }, 3000);
+    }, 2000);
 
     setTimeout(() => {
       setText1("Wait")
-    }, 6000);
+    }, 4000);
 
     document.addEventListener("click", (e) => {
       if (e.target.classList[0] === "app__model") {
@@ -48,8 +50,6 @@ function App() {
         hoverSound.play();
       })
     })
-
-
   }, [])
 
   const selectGift = (code) => {
@@ -80,8 +80,21 @@ function App() {
     setModel1Active(true);
   }
 
+  const playHappyBirthday = () => {
+    const happyBirthdaySong = document.querySelector(".app__happyBirthdaySong");
+    if (happyBirthdaySong.duration > 0 && !happyBirthdaySong.paused) {
+      happyBirthdaySong.pause();
+    } else {
+      happyBirthdaySong.play();
+    }
+  }
+
   return (
     <div className="app">
+      <audio className="app__happyBirthdaySong">
+        <source src="horse.ogg" type="audio/ogg" />
+        <source src={happyBirthdaySong} type="audio/mpeg" />
+      </audio>
       <audio controls className="app__clickSound">
         <source src="horse.ogg" type="audio/ogg" />
         <source src={clickSound} type="audio/mpeg" />
@@ -158,7 +171,7 @@ function App() {
       <div className="app__beforeContainer">
         <div className="app__beforeContainer__txt txt-1"> {text1} </div>
         <img
-          src={firstImg}
+          src={beforeContainerImg}
           alt=""
           className="app__beforeContainer__img"
         />
@@ -176,11 +189,15 @@ function App() {
               alt=""
               className="app__section1__left__container__bdHat"
             />
-            <img
-              src={birthdayCake}
-              alt=""
-              className="app__section1__left__container__cake"
-            />
+            <div className="app__section1__left__container__cakeContainer">
+              <img
+                src={birthdayCake}
+                alt=""
+                className="app__section1__left__container__cake"
+                onClick={playHappyBirthday}
+              />
+              <div className="app__section1__left__container__cakeContainer__txt"> Click me first </div>
+            </div>
             <img
               src={birthdayFlags}
               alt=""
@@ -194,21 +211,21 @@ function App() {
               Wishing you a happy
             </div>
             <div className="app__section1__right__top__txt2">
-              <img
+              {/* <img
                 src={txt2BdayHat}
                 alt=""
                 className="app__section1__right__top__txt1__img"
-              />
+              /> */}
               Birthday
             </div>
             <div className="app__section1__right__top__txt3">
               full of
             </div>
             <div className="app__section1__right__top__txt4">
-              happiness &
+              happiness,
             </div>
             <div className="app__section1__right__top__txt5">
-              joy
+              love and joy
             </div>
             <button className="app__section1__right__top__button" onClick={clickMe}> Click me </button>
           </div>
@@ -266,17 +283,16 @@ function App() {
           <p className="app__section3__right__txt2">
             This world needs more people like you, kind
             <br />
-            harted, hardworking, and sweet. I feel so lucky to
+            hearted, hardworking, and sweet. I feel so lucky to
             <br />
             have a friend like you. who always has my back.
             <br />
-            Happy birthday!
+            Happy birthday Caitlyn! 🥳 🥳 🥳
           </p>
           <p className="app__section3__right__txt2Mobile">
             This world needs more people like you, kind
-            harted, hardworking, and sweet. I feel so lucky to
+            hearted, hardworking, and sweet. I feel so lucky to
             have a friend like you. who always has my back.
-            Happy birthday!
           </p>
         </div>
       </div>

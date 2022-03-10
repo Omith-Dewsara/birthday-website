@@ -9,7 +9,8 @@
 }
 
 .app__hoverSound,
-.app__clickSound {
+.app__clickSound,
+.app__happyBirthdaySong {
   display: none;
 }
 
@@ -23,7 +24,7 @@
   align-items: center;
   /* background-image: url(https://i.gifer.com/origin/1a/1af8d3b487b77085d5288814f151e1de.gif); */
   animation: disapear-ani-2 1s linear forwards;
-  animation-delay: 9s;
+  animation-delay: 6s;
   z-index: 2;
 }
 
@@ -34,14 +35,15 @@
   padding: 50px;
   margin: 0 0 10px 0;
   border-radius: 10px;
-  color: #fff;
+  /* color: #fff; */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  animation: disapear-ani 3s linear forwards;
+  animation: disapear-ani 2s linear forwards;
   animation-iteration-count: 3;
   backdrop-filter: blur(10px);
   z-index: 1;
   font-family: 'Fredoka', sans-serif;
+  color: #000;
 }
 
 @keyframes disapear-ani {
@@ -51,6 +53,10 @@
   50% {
     opacity: 1;
     transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
   }
   100% {
     opacity: 0;
@@ -119,7 +125,9 @@
   align-items: center;
   /* border-right: 20px solid #7A8C8A; */
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  background-image: linear-gradient(to top right, #EFC5F7, #E1BFFA)
+  background-image: linear-gradient(to top right, #EFC5F7, #E1BFFA);
+  /* background-image: linear-gradient(to top right, #B26983, #7B5E7D); */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 .app__section1__left__img {
@@ -139,7 +147,7 @@
   cursor: pointer;
   animation: cake-ani 5s linear;
   animation-iteration-count: infinite;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes cake-ani {
@@ -158,6 +166,23 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
+.app__section1__left__container__cakeContainer {
+  position: realtive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app__section1__left__container__cakeContainer__txt {
+  text-align: center;
+  font-size: 20px;
+  animation: cake-ani 5s linear infinite;
+  font-family: 'Fredoka', sans-serif;
+  color: #000;
+  position: absolute;
+  bottom: -40px;
+}
+
 .app__section1__left__container__bdHat {
   position: absolute;
   bottom: 285px;
@@ -171,6 +196,7 @@
   top: 270px;
   left: 0;
   width: 300px;
+  display: none;
 }
 
 .app__section1__right {
@@ -216,15 +242,16 @@
 .app__section1__right__top__txt1 {
   font-weight: 800;
   font-size: 25px;
-  animation-delay: 9s;
+  animation-delay: 7s;
 }
 
 .app__section1__right__top__txt2 {
   font-size: 100px;
   font-family: 'Monoton', cursive;
   text-align: right;
-  animation-delay: 11s;
+  animation-delay: 10s;
   position: relative;
+  color: #759687;
 }
 
 .app__section1__right__top__txt1__img {
@@ -239,16 +266,16 @@
 }
 
 .app__section1__right__top__txt4 {
-  animation-delay: 15s;
+  animation-delay: 16s;
 }
 
 .app__section1__right__top__txt5 {
-  animation-delay: 17s;
+  animation-delay: 19s;
 }
 
 .app__section1__right__top__button {
   display: block;
-  margin: 20px 0 0 auto;
+  margin: 40px 0 0 auto;
   width: 200px;
   height: 50px;
   cursor: pointer;
@@ -261,7 +288,7 @@
   border-radius: 25px;
   opacity: 0; 
   animation: fade-in-2 2s linear forwards;
-  animation-delay: 19s;
+  animation-delay: 22s;
   transition: box-shadow 200ms linear;
    -webkit-transition: all 0.1s;
   -moz-transition: all 0.1s;
@@ -397,7 +424,7 @@
 
 .app__model__container__txt1 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 300;
   padding: 10px;
   border-radius: 5px;
 }
@@ -412,8 +439,10 @@
   outline: none;
   cursor: pointer;
   margin: 20px 0 0 0;
-  background-image: linear-gradient(to top right, #F16844, #FFBF84);
-  color: #fff;
+  /* background-image: linear-gradient(to top right, #476F54, #84AE86); */
+  background-image: linear-gradient(to top right, #101010, #5B5B5B);
+  color: seagreen;
+  font-weight: 600;
   transition: transform 200ms linear;
 }
 
@@ -437,7 +466,7 @@ button {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  background-image: linear-gradient(to top right, #EFC5F7, #E1BFFA);
+  /* background-image: linear-gradient(to top right, #EFC5F7, #E1BFFA); */
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
@@ -460,6 +489,14 @@ button {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
   background-image: linear-gradient(to top right, #886EC2, #E087B1);
   transition: transform 300ms linear;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 0 #9672BF, 0 2px 0 #9672BF,
+              0 3px 0 #9672BF, 0 4px 0 #9672BF,
+              0 5px 0 #9672BF, 0 6px 0 #9672BF,
+              0 5px 0 #9672BF, 0 5px 0 #9672BF,
+              0 0px 0 #9672BF, 0 0px 0 #9672BF,
+              0 6px 0 #9672BF, 0 6px 0 #9672BF,
+              0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .app__section2__right__giftBoxes__giftImgs {
@@ -582,6 +619,15 @@ button {
 .app__model__container__circle6 {
   top: 440px;
   left: 60px;
+}
+
+.app__section2__left__txt1 {
+  color: #4f695e;
+}
+
+.app__section2__left__txt1__title {
+  font-family: 'Monoton', sans-serif;
+  color: #000;
 }
 
 @keyframes model-container-circle-ani-1 {
